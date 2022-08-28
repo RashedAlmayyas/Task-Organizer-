@@ -1,13 +1,25 @@
-function check() {
-  let storedEmail = localStorage.getItem("email");
-  let storedPw = localStorage.getItem("password");
+   let storedEmail = localStorage.getItem('allUsers');
+    let storedEm = JSON.parse(storedEmail)
+    let email = document.getElementById('email');
+    let passphrase = document.getElementById('passphrase');
+    
+    let form = document.getElementById('logForm')
+    form.addEventListener('submit', (e) => {
 
-  let email = document.getElementById("email");
-  let pass = document.getElementById("pass");
+        e.preventDefault();
+        if(email.value && passphrase.value){
+            storedEm.forEach(element => {
 
-  if (email.value == storedEmail && pass.value == storedPw) {
-    alert("You are logged in.");
-  } else {
-    alert("Error on login");
-  }
-}
+                if(email.value == element.email && passphrase.value == element.password){
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                      }, 500);
+                }else{
+                    setTimeout(() => {
+                        alert('Incorrect email or Password.');
+                      }, 1000);
+                }
+                
+        });
+        
+    }})
