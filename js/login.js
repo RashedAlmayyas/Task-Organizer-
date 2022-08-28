@@ -12,7 +12,8 @@
 
                 if(email.value == element.email && passphrase.value == element.password){
                     setTimeout(() => {
-                        window.location.href = 'index.html';
+                        window.location.href = 'dashboard.html
+';
                       }, 500);
                 }else{
                     setTimeout(() => {
